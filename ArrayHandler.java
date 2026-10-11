@@ -5,7 +5,6 @@ public class ArrayHandler {
     private int size;
     private int capacity;
 
-
     public ArrayHandler(int capacity) {
         this.capacity = capacity;
         this.array = new int[capacity];
@@ -21,7 +20,6 @@ public class ArrayHandler {
         System.out.println("Inserted " + value + " into array.");
     }
 
-    
     public void delete(int value) {
         int index = -1;
         for (int i = 0; i < size; i++) {
