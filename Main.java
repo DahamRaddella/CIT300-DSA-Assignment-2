@@ -162,7 +162,7 @@ public class Main {
         System.out.print("Enter choice: ");
         int ch = getIntInput();
         if (ch == 1) arrayHandler.linearSearch(10);
-        else if (ch == 2) arrayHandler.binarySearch(10);
+else if (ch == 2) arrayHandler.binarySearch(10);
     }
 
     private static void handleGraphMenu() {
