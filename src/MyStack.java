@@ -1,4 +1,3 @@
-package src;
 public class MyStack {
     private int maxSize;
     private int[] stackArray;
