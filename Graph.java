@@ -1,65 +1,47 @@
 import java.util.*;
 
-// Piyumika - Graph Implementation
 public class Graph {
     private Map<String, List<String>> adjList;
-    private int numVertices;
-    private int numEdges;
 
     public Graph() {
-        adjList = new HashMap<>();
-        numVertices = 0;
-        numEdges = 0;
+        this.adjList = new HashMap<>();
     }
 
-    // O(1) - Add Vertex
     public void addVertex(String vertex) {
-        if (!adjList.containsKey(vertex)) {
-            adjList.put(vertex, new ArrayList<>());
-            numVertices++;
-        }
+        adjList.putIfAbsent(vertex, new ArrayList<>());
+        System.out.println("Vertex added: " + vertex);
     }
 
-    // O(1) - Add Edge
-    public void addEdge(String from, String to) {
-        // Vertex nattam auto add wenawa
-        addVertex(from);
-        addVertex(to);
-        
-        // Duplicate check karala add karanne
-        if (!adjList.get(from).contains(to)) {
-            adjList.get(from).add(to);
-            adjList.get(to).add(from); // Undirected graph
-            numEdges++;
-        }
+    public void addEdge(String source, String destination) {
+        adjList.putIfAbsent(source, new ArrayList<>());
+        adjList.putIfAbsent(destination, new ArrayList<>());
+        adjList.get(source).add(destination);
+        adjList.get(destination).add(source); // Undirected graph
+        System.out.println("Edge added between " + source + " and " + destination);
     }
 
-    // Display Graph - O(V + E)
-    public void display() {
-        System.out.println("Graph (Adjacency List):");
-        for (String vertex : adjList.keySet()) {
-            System.out.print(vertex + " -> ");
-            System.out.println(adjList.get(vertex));
-        }
-        System.out.println("Vertices: " + numVertices + ", Edges: " + numEdges);
-    }
-
-    // BFS - Breadth First Search O(V + E)
-    // V = vertices, E = edges
-    // Queue ekak use karala level by level yanne
-    public void bfs(String start) {
-        if (!adjList.containsKey(start)) {
-            System.out.println("Vertex not found: " + start);
+    public void displayGraph() {
+        if(adjList.isEmpty()) {
+            System.out.println("Graph is empty.");
             return;
         }
+        System.out.println("Graph Adjacency List:");
+        for (String vertex : adjList.keySet()) {
+            System.out.println(vertex + " -> " + adjList.get(vertex));
+        }
+    }
 
+    public void bfsTraversal(String startVertex) {
+        if (!adjList.containsKey(startVertex)) {
+            System.out.println("Vertex not found for BFS.");
+            return;
+        }
+        System.out.print("BFS Traversal: ");
         Set<String> visited = new HashSet<>();
         Queue<String> queue = new LinkedList<>();
 
-        visited.add(start);
-        queue.add(start);
-
-        System.out.print("BFS from " + start + ": ");
+        visited.add(startVertex);
+        queue.add(startVertex);
 
         while (!queue.isEmpty()) {
             String current = queue.poll();
@@ -75,36 +57,24 @@ public class Graph {
         System.out.println();
     }
 
-    // DFS - Depth First Search O(V + E)
-    // Stack / Recursion use karala deep yanne
-    public void dfs(String start) {
-        if (!adjList.containsKey(start)) {
-            System.out.println("Vertex not found: " + start);
+    public void dfsTraversal(String startVertex) {
+        if (!adjList.containsKey(startVertex)) {
+            System.out.println("Vertex not found for DFS.");
             return;
         }
-
+        System.out.print("DFS Traversal: ");
         Set<String> visited = new HashSet<>();
-        System.out.print("DFS from " + start + ": ");
-        dfsHelper(start, visited);
+        dfsHelper(startVertex, visited);
         System.out.println();
     }
 
     private void dfsHelper(String vertex, Set<String> visited) {
         visited.add(vertex);
         System.out.print(vertex + " ");
-
         for (String neighbor : adjList.get(vertex)) {
             if (!visited.contains(neighbor)) {
                 dfsHelper(neighbor, visited);
             }
         }
-    }
-
-    public int getVertexCount() {
-        return numVertices;
-    }
-
-    public int getEdgeCount() {
-        return numEdges;
     }
 }
