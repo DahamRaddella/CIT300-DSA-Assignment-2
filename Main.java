@@ -200,4 +200,33 @@ public class Main {
     }
 
     private static void handlePerformanceMenu() {
-        System
+        System.out.println("\n--- PERFORMANCE COMPARISON ---");
+        // Test Data for Searching 
+        int[] testData = {15, 22, 34, 48, 59, 61, 75, 88, 92, 105};
+        System.out.print("Enter a target value to test Search Algorithms (e.g., 75): ");
+        int searchTarget = getIntInput();
+        
+        System.out.print("Enter a start vertex to test Graph Traversals (e.g., A): ");
+        String startVertex = scanner.next();
+        
+        analyzer.compareSearchPerformance(testData, searchTarget);
+        analyzer.compareGraphTraversal(graph, startVertex);
+    }
+
+    private static void displayAll() {
+        System.out.println("\n--- CURRENT SYSTEM STATE ---");
+        stack.display();
+        queue.display();
+        arrayHandler.display();
+        linkedList.display();
+        graph.displayGraph();
+    }
+
+    private static int getIntInput() {
+        while (!scanner.hasNextInt()) {
+            System.out.print("Invalid input! Please enter a valid number: ");
+            scanner.next();
+        }
+        return scanner.nextInt();
+    }
+}
