@@ -7,10 +7,10 @@ This is a Java-based console application developed for the CIT300 Data Structure
 
 | Name | Student ID | Assigned Responsibility | Individual Contribution |
 | :--- | :--- | :--- | :--- |
-| **Daham Raddella** | [STUDENT ID] | Stack, Queue & System Integration | Implemented `MyStack` and `MyQueue` classes with boundary handling. Designed the `Main` class menu, integrated all components, and managed GitHub repository setup. |
-| **Rashmini** | [STUDENT ID] | Array & Searching Implementation | Implemented `ArrayHandler` class. Developed Array insertion, deletion, Linear Search, and Binary Search algorithms. |
-| **Lakshan** | [STUDENT ID] | Linked List & Performance Analyzer | Implemented `MyLinkedList` class with node manipulation. Developed `PerformanceAnalyzer` to track execution time (ns) and steps for algorithms. |
-| **Piyumika** | [STUDENT ID] | Graph Component & Traversals | Implemented `Graph` class using Adjacency List. Developed Add Vertex, Add Edge, Breadth-First Search (BFS), and Depth-First Search (DFS) traversals. |
+| **Daham Raddella** | [23DA-0418] | Stack, Queue & System Integration | Implemented `MyStack` and `MyQueue` classes with boundary handling. Designed the `Main` class menu, integrated all components, and managed GitHub repository setup. |
+| **Rashmini** | [23D2-0147] | Array & Searching Implementation | Implemented `ArrayHandler` class. Developed Array insertion, deletion, Linear Search, and Binary Search algorithms. |
+| **Lakshan** | [23D2-0303] | Linked List & Performance Analyzer | Implemented `MyLinkedList` class with node manipulation. Developed `PerformanceAnalyzer` to track execution time (ns) and steps for algorithms. |
+| **Piyumika** | [23DA2-0147] | Graph Component & Traversals | Implemented `Graph` class using Adjacency List. Developed Add Vertex, Add Edge, Breadth-First Search (BFS), and Depth-First Search (DFS) traversals. |
 
 ## 🚀 Technologies Used
 * **Programming Language:** Java (JDK)
